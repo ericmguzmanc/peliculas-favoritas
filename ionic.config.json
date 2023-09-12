@@ -1,0 +1,7 @@
+{
+  "name": "peliculas-favoritas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
