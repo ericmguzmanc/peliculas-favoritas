@@ -12,12 +12,6 @@ export class PeliculasPage implements OnInit {
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
-    console.log('🚀 ~ file: peliculas.page.ts:17 ~ PeliculasPage ~ setTimeout ~ this.movies:', this.movies)
-    // setTimeout(() => {
-    //   this.movies = [1, 2, 3];
-    //   console.log('🚀 ~ file: peliculas.page.ts:17 ~ after timeout', this.movies)
-    // }, 5000)
-
     this.movieService.loadMovies();
   }
 
