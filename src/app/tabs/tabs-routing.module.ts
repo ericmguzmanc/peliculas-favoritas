@@ -16,6 +16,10 @@ const routes: Routes = [
         loadChildren: () => import('../mis-favoritas/mis-favoritas.module').then(m => m.MisFavoritasPageModule)
       },
       {
+        path: 'movie-details',
+        loadChildren: () => import('../movie-details/movie-details.module').then( m => m.MovieDetailsPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/peliculas',
         pathMatch: 'full'

@@ -8,6 +8,7 @@ import { MisFavoritasPageRoutingModule } from './mis-favoritas-routing.module';
 
 import { MisFavoritasPage } from './mis-favoritas.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
     FormsModule,
     IonicModule,
     ExploreContainerComponentModule,
-    MisFavoritasPageRoutingModule
+    MisFavoritasPageRoutingModule,
+    SharedModule
   ],
   declarations: [MisFavoritasPage]
 })

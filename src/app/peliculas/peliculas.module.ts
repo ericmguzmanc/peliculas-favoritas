@@ -8,6 +8,9 @@ import { PeliculasPageRoutingModule } from './peliculas-routing.module';
 
 import { PeliculasPage } from './peliculas.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { SharedModule } from '../shared/shared.module';
+import { MoviesListComponentModule } from '../movies-list/movies-list.module';
+import { MovieService } from '../shared/services/movie.service';
 
 @NgModule({
   imports: [
@@ -15,8 +18,13 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
     FormsModule,
     IonicModule,
     ExploreContainerComponentModule,
-    PeliculasPageRoutingModule
+    PeliculasPageRoutingModule,
+    MoviesListComponentModule,
+    SharedModule
   ],
-  declarations: [PeliculasPage]
+  declarations: [PeliculasPage],
+  providers: [
+    MovieService
+  ]
 })
 export class PeliculasPageModule {}
