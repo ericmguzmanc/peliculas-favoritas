@@ -32,7 +32,6 @@ export class MovieDetailsPage implements OnInit {
 
   ngOnInit() { 
     this.movieService.movieDetails.subscribe(details => {
-      console.log('🚀 ~ file: movie-details.page.ts:17 ~ MovieDetailsPage ~ this.movieService.movieDetails.subscribe ~ movieDetails subject:', details)
       this.movie = details;
     });
 
