@@ -1,7 +1,7 @@
 <ion-content>
   <ng-container *ngIf="movies">
     <ion-list>
-      <ion-item href="/movie-details" *ngFor="let movie of movies">
+      <ion-item href="/movie-details/{{movie.id}}" *ngFor="let movie of movies" details (click)="goToDetails(movie)">
         <ion-thumbnail>
           <ion-img src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}"></ion-img>
         </ion-thumbnail>
@@ -10,6 +10,7 @@
           <h2>{{movie.original_title}}</h2>
           <p>{{movie.overview}}</p>
         </ion-label>
+        <ion-icon *ngIf="movie.favorite && !onlyFavorites" slot="end" name="star"></ion-icon>
         <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
       </ion-item >
     </ion-list>

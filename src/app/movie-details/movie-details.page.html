@@ -1,8 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-      <ion-title>Detalle Película</ion-title>
+      <ion-back-button defaultHref="/" (click)="onBackButtonClick()"></ion-back-button>
+      <ion-title *ngIf="movie">Detalles</ion-title>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -12,10 +12,82 @@
     <ion-toolbar>
       <ion-buttons>
         <ion-back-button></ion-back-button>
-        <ion-title>Detalle Película</ion-title>
+        <ion-title *ngIf="movie">Detalles</ion-title>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
 
   <!-- content -->
+  <ion-content *ngIf="!movie">
+    <ion-spinner name="crescent"></ion-spinner>
+  </ion-content>
+
+  <ng-container *ngIf="movie">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-img src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}"></ion-img>
+        </ion-col>
+        <ion-col>
+          <ion-row class="main-row">
+            <ion-col>
+              <!-- <span>Título Original</span> -->
+              <h3>{{movie.title}}</h3>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <span>Fecha de Lanzamiento</span>
+              <h6>{{movie.release_date | date}}</h6>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <span>Presupuesto</span>
+              <h6>{{movie.budget | currency}}</h6>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <!-- verificar si ya está en favoritas para remover -->
+          <ion-button expand="block" [fill]="favoriteButtonFill" (click)="toggleFavorite(movie)" [color]="favoriteButtonColor">
+            {{favoriteButton}}
+            <ion-icon slot="end" [name]="favoriteButtonIcon"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h5>Sinopsis</h5>
+          <p>{{movie.overview}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h5>Recaudado</h5>
+          <span>{{movie.revenue | currency}}</span>
+        </ion-col>
+        <ion-col>
+          <h5>Duración (Minutos)</h5>
+          <span>{{movie.runtime}}</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <h5>Idioma Original</h5>
+          <span>{{movie.original_language | uppercase}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-container>
+  <ion-alert
+    [isOpen]="isAlertOpen"
+    [header]="alertObject.header"
+    [subHeader]="alertObject.subHeader"
+    [message]="alertObject.message"
+    [buttons]="alertButtons"
+    (didDismiss)="setOpen(false)"
+  ></ion-alert>
 </ion-content>

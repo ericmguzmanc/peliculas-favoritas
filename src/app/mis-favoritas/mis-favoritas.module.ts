@@ -9,6 +9,7 @@ import { MisFavoritasPageRoutingModule } from './mis-favoritas-routing.module';
 import { MisFavoritasPage } from './mis-favoritas.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import { SharedModule } from '../shared/shared.module';
+import { MoviesListComponentModule } from '../movies-list/movies-list.module';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { SharedModule } from '../shared/shared.module';
     IonicModule,
     ExploreContainerComponentModule,
     MisFavoritasPageRoutingModule,
+    MoviesListComponentModule,
     SharedModule
   ],
   declarations: [MisFavoritasPage]
