@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mis-favoritas.page.scss'],
 })
 export class MisFavoritasPage implements OnInit {
+  onlyFavorites = true;
 
   constructor() { }
 

@@ -2,11 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { MisFavoritasPage } from './mis-favoritas.page';
+import { FavoritesResolver } from '../shared/resolvers/favorites.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: MisFavoritasPage
+    component: MisFavoritasPage,
+    resolve: {
+      favorites: FavoritesResolver
+    }
   }
 ];
 

@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { MovieService } from './services/movie.service';
+import { FavoritesResolver } from './resolvers/favorites.resolver';
 
 @NgModule({
   declarations: [
-    // MoviesListComponent,
   ],
   imports: [
     CommonModule,
@@ -16,6 +16,7 @@ import { MovieService } from './services/movie.service';
   ],
   providers: [
     MovieService,
+    FavoritesResolver
   ]
 })
 export class SharedModule {}
